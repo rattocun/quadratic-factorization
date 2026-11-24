@@ -1,0 +1,83 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Practice factoring quadratics with adjustable coefficient ranges.">
+  <meta name="theme-color" content="#f3f5f9">
+  <title>Factoring Practice</title>
+  <link rel="stylesheet" href="./styles.css">
+  <script type="module" src="./app.mjs"></script>
+</head>
+<body>
+  <main class="workspace">
+    <header class="page-header">
+      <div class="math-mark" aria-hidden="true">𝑥²</div>
+      <div>
+        <h1>Factoring practice</h1>
+        <p>Factor a quadratic into two linear expressions.</p>
+      </div>
+    </header>
+
+    <div class="layout">
+      <section class="panel practice" aria-labelledby="practice-title">
+        <div class="panel-heading">
+          <h2 id="practice-title">Factor the quadratic</h2>
+          <button id="generate" class="button button-secondary" type="button">Generate</button>
+        </div>
+
+        <div class="equation-box">
+          <p id="equation" aria-live="polite" aria-atomic="true"></p>
+        </div>
+
+        <form id="answer-form" novalidate>
+          <label for="answer">Your factorization</label>
+          <div class="answer-row">
+            <input id="answer" name="answer" type="text" placeholder="(2x+3)(x-1)"
+              aria-describedby="answer-hint" autocomplete="off" autocapitalize="off" spellcheck="false">
+            <button id="check" class="button button-primary" type="submit" disabled>Check</button>
+          </div>
+          <p id="answer-hint" class="hint">Use <code>x</code> for the variable. A leading minus is allowed, as in <code>-(x+1)(x-3)</code>.</p>
+        </form>
+
+        <p id="feedback" class="feedback" role="status" aria-atomic="true"></p>
+      </section>
+
+      <aside class="panel settings" aria-labelledby="settings-title">
+        <h2 id="settings-title">Coefficient ranges</h2>
+        <p class="settings-note">Minimum and maximum are included. Changes apply when you select Generate.</p>
+
+        <table class="range-table">
+          <thead>
+            <tr><th scope="col">Coefficient</th><th scope="col">Min</th><th scope="col">Max</th></tr>
+          </thead>
+          <tbody>
+            <tr>
+              <th scope="row"><var>a</var></th>
+              <td><input id="a-min" aria-label="a minimum" type="number" step="1" value="-5"></td>
+              <td><input id="a-max" aria-label="a maximum" type="number" step="1" value="5"></td>
+            </tr>
+            <tr>
+              <th scope="row"><var>b</var></th>
+              <td><input id="b-min" aria-label="b minimum" type="number" step="1" value="-9"></td>
+              <td><input id="b-max" aria-label="b maximum" type="number" step="1" value="9"></td>
+            </tr>
+            <tr>
+              <th scope="row"><var>c</var></th>
+              <td><input id="c-min" aria-label="c minimum" type="number" step="1" value="-5"></td>
+              <td><input id="c-max" aria-label="c maximum" type="number" step="1" value="5"></td>
+            </tr>
+            <tr>
+              <th scope="row"><var>d</var></th>
+              <td><input id="d-min" aria-label="d minimum" type="number" step="1" value="-9"></td>
+              <td><input id="d-max" aria-label="d maximum" type="number" step="1" value="9"></td>
+            </tr>
+          </tbody>
+        </table>
+
+        <p class="range-rule"><span class="factor-preview">(<var>ax</var> + <var>b</var>)(<var>cx</var> + <var>d</var>)</span><br>Each factor has coprime coefficients.</p>
+      </aside>
+    </div>
+  </main>
+</body>
+</html>
